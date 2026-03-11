@@ -1,0 +1,17 @@
+@RestController
+@RequestMapping("/api/nft")
+public class NFTController {
+
+    @Autowired
+    private NFTRepository repository;
+
+    @PostMapping("/mint")
+    public NFT mintNFT(@RequestBody NFT nft){
+        return repository.save(nft);
+    }
+
+    @GetMapping("/all")
+    public List<NFT> getAllNFTs(){
+        return repository.findAll();
+    }
+}
