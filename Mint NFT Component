@@ -1,0 +1,44 @@
+import React, { useState } from "react";
+import { mintNFT } from "../services/api";
+
+function MintNFT(){
+
+const [name,setName] = useState("");
+const [price,setPrice] = useState("");
+
+const submitNFT = async () => {
+ await mintNFT({
+     name:name,
+     creator:"User1",
+     price:price,
+     owner:"User1"
+ });
+ alert("NFT Minted!");
+};
+
+return(
+<div className="container">
+<h3>Mint NFT</h3>
+
+<input
+className="form-control"
+placeholder="NFT Name"
+onChange={(e)=>setName(e.target.value)}
+/>
+
+<input
+className="form-control"
+placeholder="Price"
+onChange={(e)=>setPrice(e.target.value)}
+/>
+
+<button className="btn btn-primary mt-2"
+onClick={submitNFT}>
+Mint
+</button>
+
+</div>
+);
+}
+
+export default MintNFT;
