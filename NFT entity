@@ -1,0 +1,13 @@
+@Entity
+public class NFT {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    private String name;
+    private String creator;
+    private double price;
+    private String owner;
+
+}
