@@ -1,0 +1,14 @@
+////  src/services/api.ts  /////
+
+
+import axios from "axios";
+
+const API_URL = "http://localhost:8080/api/nft";
+
+export const mintNFT = (data:any) => {
+    return axios.post(`${API_URL}/mint`, data);
+};
+
+export const getNFTs = () => {
+    return axios.get(`${API_URL}/all`);
+};
